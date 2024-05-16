@@ -1,0 +1,7 @@
+[2:43 PM] Pratik Mahesh Merchant
+With the recent news of indirect prompt injection attacks on AI systems, businesses are understandably concerned about the potential misuse of LLMs by hackers. At Prediction Guard, we provide robust, compliant, and cost-effective AI solutions, including LLMs, to alleviate these concerns. Our platform offers features like de-risking inputs, validating outputs, and implementing private, compliant LLM systems, ensuring that your data remains secure.Our state-of-the-art LLMs offer diverse strengths and capabilities, with key features such as chat completions, text generation, security enhancements, and language model integration. We specialize in chat-related applications and offer models fine-tuned for chat scenarios. With our "chat completions" endpoint and Python client, creating chatbots is seamless.In light of the news, Prediction Guard is committed to providing innovative and secure approaches to enhance language models, including multi-step reasoning, chaining operations, toxicity checks, factuality checks, and more. Contact us to learn how we can help make your AI journey safe and secure.
+
+
+Emojis, paragraph splits, hashtags
+improve prompts
+start with lower temp

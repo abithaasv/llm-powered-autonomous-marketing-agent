@@ -1,0 +1,62 @@
+,title,url
+0,Getting Started,/
+1,Available Models,/models
+2,Model Options,/models/details
+3,Prompt Formats,/models/prompts
+4,Using LLMs,/usingllms
+5,Accessing LLMs,/usingllms/accessing
+6,Basic Prompting,/usingllms/prompting
+7,Prompt Engineering,/usingllms/engineering
+8,Chat Completions,/usingllms/chat
+9,Chaining and Retrieval,/usingllms/augmentation
+10,Agents,/usingllms/agents
+11,Process LLM Input,/input
+12,PII modification,/input/PII
+13,Prompt injection detection,/input/injection
+14,Validating LLM Output,/output
+15,Consistency,/output/consistency
+16,Factuality,/output/factuality
+17,Toxicity,/output/toxicity
+18,Guides,/guides
+19,Data analytics with LLMs + DuckDB,/guides/ada
+20,Data Extraction + Factuality Checks,/guides/data-extraction
+21,LangChain LLM Wrapper,/guides/langchainllm
+22,ManyChat with LLMs,/guides/ManyChat
+23,Reference,/reference
+24,Chat,/reference/chat
+25,Completions,/reference/completions
+26,Factuality,/reference/factuality
+27,Injection,/reference/injection
+28,Pii,/reference/PII
+29,Toxicity,/reference/toxicity
+30,Translate,/reference/translate
+31,Available Models,/models
+32,Model Options,/models/details
+33,Prompt Formats,/models/prompts
+34,Using LLMs,/usingllms
+35,Accessing LLMs,/usingllms/accessing
+36,Basic Prompting,/usingllms/prompting
+37,Prompt Engineering,/usingllms/engineering
+38,Chat Completions,/usingllms/chat
+39,Chaining and Retrieval,/usingllms/augmentation
+40,Agents,/usingllms/agents
+41,Process LLM Input,/input
+42,PII modification,/input/PII
+43,Prompt injection detection,/input/injection
+44,Validating LLM Output,/output
+45,Consistency,/output/consistency
+46,Factuality,/output/factuality
+47,Toxicity,/output/toxicity
+48,Guides,/guides
+49,Data analytics with LLMs + DuckDB,/guides/ada
+50,Data Extraction + Factuality Checks,/guides/data-extraction
+51,LangChain LLM Wrapper,/guides/langchainllm
+52,ManyChat with LLMs,/guides/ManyChat
+53,Reference,/reference
+54,Chat,/reference/chat
+55,Completions,/reference/completions
+56,Factuality,/reference/factuality
+57,Injection,/reference/injection
+58,Pii,/reference/PII
+59,Toxicity,/reference/toxicity
+60,Translate,/reference/translate

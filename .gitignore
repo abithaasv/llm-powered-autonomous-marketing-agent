@@ -1,0 +1,22 @@
+# environment variables
+.env
+
+# session files created using 
+*session
+
+# all testing files
+test*
+
+# Database directory
+.*lancedb/
+
+# virtual environment directories
+*venv/
+
+# python cache
+__pycache__*
+
+commit_message.txt
+
+# maintenance logs
+*.log

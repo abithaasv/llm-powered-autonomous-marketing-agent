@@ -1,0 +1,817 @@
+,title,url,Scraped Content
+0,Getting Started,/,"Getting Started
+Technical teams need to figure out how to integrate the latest Large Language Models (LLMs), but:
+You can’t build robust systems with inconsistent, unvalidated outputs; and
+LLM integrations scare corporate lawyers, finance departments, and security professionals due to hallucinations, cost, lack of compliance (e.g., HIPAA), leaked IP/PII, and “injection” vulnerabilities.
+Some companies are moving forward anyway by investing tons of engineering time/money in their own wrappers around LLMs and expensive hosting with OpenAI/Azure. Others are ignoring these issues and pressing forward with fragile and risky LLM integrations.
+At Prediction Guard, we think that you should get useful output from compliant AI systems (without crazy implementation/ hosting costs), so our solution lets you:
+De-risk LLM inputsto remove PII and prompt injections;
+Validate and check LLM outputsto guard against hallucination, toxicity and inconsistencies; and
+Implement private and compliant LLM systems(HIPAA and self-hosted) that give your legal counsel warm fuzzy feeling while still delighting your customers with AI features.
+Sounds pretty great right? Follow the steps below to starting leveraging trustworthy LLMs:
+1. Get access to Prediction Guard Enterprise
+We host and control the latest LLMs for you in our secure and privacy-conserving enterprise platform, so you can focus on your prompts and chains. To access the hosted LLMs, contact ushere(opens in a new tab)to get an enterprise access token. You will need this access token to continue.
+2. (Optional) Install the Python client
+You can configure and use Prediction Guard using our Python client or via REST API directly. If you are wanting to use the Python client, you can install it as follows:
+3. Start using one of our LLMs!
+Suppose you want to prompt an LLM to answer a user query from a chat application. You can setup a message thread, which includes a system prompt (that instructs the LLM how to behave in responding) as follows:
+You can then use our Python client or REST API to prompt one of our LLMs!
+Note, you will need to replacein the above examples with your actual access token.
+This should result in something similar to the following output. Thefield contains the raw LLM output.
+4. Explore other models, and guides
+This is only the beginning of what your can do with Prediction Guard (not to mention what is on our roadmap). Now that you have a working example, consider exploring:
+Basic prompting strategies, prompt engineering, RAG workflows and more underUsing LLMs
+Thevariety of models availablevia Prediction Guard's easy-to-use API
+One of ourguidesfor particular use cases"
+1,Available Models,/models,"Available Models
+Model Options- We host a variety of the latest state-of-the-art LLMs in a privacy conserving manner. These models have a variety of strengths and capabilities. Look through these model details to see which of them might fit your use case.
+Prompt Formats- You might be used to entering simple text prompts into systems like ChatGPT. However, when you utilize certain open access LLMs directly, you might want to follow a specific prompt format. These models are fine-tuned using prompt data, and if you match your prompt formats to that training data format then you can see boosts in performance.
+Contact us in Slackif you are having issues finding the right model. We want to make sure you can build amazing LLM applications with Prediction Guard."
+2,Model Options,/models/details,"Model Options
+Using Prediction Guard gives you quick and easy access to state-of-the-art LLMs, without you needing to spend weeks figuring out all of the implementation details, managing a bunch of different API specs, and setting up a secure infrastructure for model deployments.
+LLMs are hosted by Prediction Guard in a secure, privacy conserving environment built in partnership with Intel's Liftoff program for startups.
+Note - Prediction Guard does NOT save or share any data sent to these models (or responses from the models). Further, we are able to sign a BAA for customers needing HIPAA compliance.Contact supportwith any questions.
+Note - We only integrate models that are licensed permissively for commercial use.
+Open Access LLMs (what most of our customers use) 🚀
+Open access models are amazing these days! Each of these models was trained by a talented team and released publicly under a permissive license. The data used to train each model and the prompt formatting for each model varies. We've tried to give you some of the relevant details here, but shoot us a messagein Slackwith any questions.
+The best models (start here)
+Other models available
+The models below are available in our API. However, these models scale to zero (i.e., they might not be ready for you to interact with). These models are less frequently accessed by our users, so we suggest you start with the models above. If your company requires one of these models to be up-and-running 24/7.Reach out to us, and we will help make that happen!
+Note if you aren't actively using these models, they are scaled down. As such, your first call to a model might need to ""wake up"" that model inference server. You will get a message ""Waking up model. Try again in a few minutes."" in such cases. Typically it takes around 5-15 minutes to wake up the model server depending on the size of the model. We are actively working on reducing these cold start times.
+Closed LLMs (if you  t̶r̶u̶s̶t̶ need them)
+These models are integrated into our API, but they are not hosted by Prediction Guard in the same manner as the models above.
+Note - You will need your own OpenAI API key to use the models below. Customers worried about data privacy, IP/PII leakage, HIPAA compliance, etc. should look into the above ""Open Access LLMs"" and/or our enterprise deploy.Contact supportwith any questions.
+To use the OpenAI models above, make sure you either: (1) define the environment variableif you are using the Python client; or (2) set the header parameterif you are using the REST API."
+3,Prompt Formats,/models/prompts,"Prompt Formats
+You might be used to entering simple text prompts into systems like ChatGPT. However, when you utilize certain open access LLMs directly, you might want to follow a specific prompt format. These models are fine-tuned using prompt data, and if you match your prompt formats to that training data format then you can see boosts in performance.
+Check out themodel details pageto learn which prompt formats match certain LLMs. We've included some of the most important prompt formats below.
+Note on Chat model prompts- For your convenience, we automatically apply the right prompt formats when you supply aobject to ourendpoint or via themethod in the Python client. You don't have to add in special tokens or apply the below prompt formats as this will duplicate the formatting. However, if you want to use chat-tuned models in theendpoint or via themethod, you should apply the appropriate one of the below prompt formats.
+Alpaca
+This format has two options. First, for prompts that are single instructions, without relevant context (e.g., retrieved context):
+For prompts where context is injected:
+(Replace the portions of the prompt below inwith the appropriate information, and do not keep theorcharacters)
+Neural Chat
+(Replace the portions of the prompt below inwith the appropriate information, and do not keep theorcharacters)
+ChatML
+(Replace the portions of the prompt below in curly braceswith the appropriate information, and do not keep the curly braces)
+SQLCoder
+(Replace the portions of the prompt below in curly braceswith the appropriate information, and do not keep the curly braces)
+Deepseek
+(Replace the portions of the prompt below in curly braceswith the appropriate information, and do not keep the curly braces)"
+4,Using LLMs,/usingllms,"Using LLMs - Prediction Guard in action
+We've worked on a wide variety of enterprise LLM use cases across various industries. Throughout this work, we've found the following principles of LLM usage to be critical and transferable. If you are getting started with Prediction Guard or LLMs in general, the below tutorials about LLM usage should help you level up quickly. Each tutorial can be run in Google Colab without any local environment setup.
+Accessing LLMs- Use your Prediction Guard access token to run your first text completions
+Basic prompting- Learn how to prompt these models for autocomplete, zero shot instructions, and few shot (or in context) learning
+Chat- Learn how to use LLMs to generate responses in a message thread and build chatbots
+Prompt engineering- Leverage prompt templates and model parameters to hone in on the right workflows
+Augmentation and retrieval- Augment your prompts with your own data
+Agents- Create more complex automations with agentic workflows
+Data Extraction- Extract relevant data from text output and perform factuality checks
+Note- These examples will be given in Python, but the same workflows could be accomplished in other languages via our REST API."
+5,Accessing LLMs,/usingllms/accessing,"Accessing LLMs
+(Run this example in Google Colabhere(opens in a new tab))
+Promptingis the process of providing a partial, usually text, input to a model. As we discussed in the last chapter, models will then use their parameterized data transformations to find a probable completion or output that matches the prompt.
+To run any prompt through a model, we need to set a foundation for how we will access generative AI models and perform inference. There is a huge variety in the landscape of generative AI models in terms of size, access patterns, licensing, etc. However, a common theme is the usage of LLMs through a REST API, which is either:
+Provided by a third party service (OpenAI, Anthropic, Cohere, etc.)
+Self-hosted in your own infrastructure or in an account you control with a model hosting provider (Replicate, Baseten, etc.)
+Self-hosted using a DIY model serving API (Flask, FastAPI, etc.)
+We will usePrediction Guard(opens in a new tab)to call open access LLMs (like Mistral, Llama 2, WizardCoder, etc.) via a standardized OpenAI-like API. This will allow us to explore the full range of LLMs available. Further, it will illustrate how companies can access a wide range of models (outside of the GPT family).
+In order to ""prompt"" an LLM via Prediction Guard (and eventually engineer prompts), you will need to first install the Python client and supply your access token as an environment variable:
+You can find out more about the models available via the Prediction Guard APIin the docs(opens in a new tab), and you can list out the model names via this command:
+Generating text with one of these models is then just single request for a ""Completion"" (note, we also support chat completions). Here we will call themodel and try to have it autocomplete a joke.
+This should result in something similar to the following JSON output which includes the completion:
+The actual text completion is included in."
+6,Basic Prompting,/usingllms/prompting,"Basic Prompting
+(Run this example in Google Colabhere(opens in a new tab))
+Prompt and AI Engineeringis the emerging developer task of designing and optimizing prompts (and associated workflows/ infra) for AI models to achieve specific goals or outcomes. It involves creating high-quality inputs that can elicit accurate and relevant responses from AI models. The next several examples will help get you up to speed on common prompt engineering strategies.
+Dependencies and imports
+Similar to the last notebook, you will need to install Prediction Guard and add your token.
+Autocomplete
+Because LLMs are configured/ trained to perform the task of text completion, the most basic kind of prompt that you might provide is an autocomplete prompt. Regardless of prompt structure, the model function will compute the probabilities of words, tokens, or characters that might follow in the sequence of words, tokens, or characters that you provided in the prompt.
+Depending on the desired outcome, the prompt may be a single sentence, a paragraph, or even an partial story. Additionally, the prompt may be open-ended, providing only a general topic or theme, or it may be more specific, outlining a particular scenario or plot.
+This prompt should result in an output similar to:
+Other examples include the following (note that we can also complete things like SQL statements):
+Zero-shot prompts
+Autocomplete is a great place to start, but it is only that: a place to start. Throughout this workshop we will be putting on our prompt engineering hats to do some impressive things with generative AI. As we continue along that path, there is a general prompt structure that will pop up over and over again:
+One of the easiest ways to leverage the above prompt structure is to describe a task (e.g., sentiment analysis), provide a single piece of data as context, and then provide a single output indicator. This is called azero shot prompt. Here is a zero-shot prompt for performing sentiment analysis:
+Which should output.
+Note- We are doing some post-processing on the text output (stripping out extra whitespace and only getting the first word/label), because the model will just continue generating text in certain cases. We will return to this later on in the tutorials.
+Note- We are using a very specific prompt format (with theetc. markers). This is the alpaca prompt format that is preferred by themodel. Each model might have a different preferred prompt format, and you can find out more about thathere.
+Another example of zero-shot prompting is the following for question and answer:
+Few shot prompts
+When your task is slightly more complicated or requires a few more leaps in reasoning to generate an appropriate response, you can turn to few shot prompting (aka in context learning). In few shot prompting, a small number of gold standard demonstrations are integrated into the prompt. These demonstrations serve as example (context, output) pairs for the model, which serve to tune the probable output on-the-fly to what we ideally want in the output.
+Although not always necessary (as seen above), few shot prompting generally produces better results than single shot prompting in terms of consistency and similarity to your ideal outputs.
+Let's reformat our sentiment prompt to include demonstrations:
+This should output.
+Another common example of few shot prompting is chat conversations. Although Prediction Guard has specific functionality to support chat memory and threads. You can actually use any non-chat-specific model to generate a chat response. For example:
+This will output the Hinglish response similar to:
+If you don't speak Hinglish, you can check out the translation using another prompt:
+Which will output similar to:"
+7,Prompt Engineering,/usingllms/engineering,"Prompt Engineering
+(Run this example in Google Colabhere(opens in a new tab))
+As we have seen in the previous examples, it is easy enough to prompt a generative AI model. Shoot off an API call, and suddently you have an answer, a machine translation, sentiment analyzed, or a chat message generated. However, going from ""prompting"" to ai engineering of your AI model based processes is a bit more involved. The importance of the ""engineering"" in prompt engineering has become increasingly apparent, as models have become more complex and powerful, and the demand for more accurate and interpretable results has grown.
+The ability to engineer effective prompts and related workflows allows us to configure and tune model responses to better suit our specific needs (e.g., for a particular industry like healthcare), whether we are trying to improve the quality of the output, reduce bias, or optimize for efficiency.
+Dependencies and imports
+This time we will add a new import!
+Prompt templates
+One of the best practices that we will discuss below involves testing and evaluating model output using example prompt contexts and formulations. In order to institute this practice, we need a way to rapidly and programmatically format prompts with a variety of contexts. We will need this in our applications anyway, because in production we will be receiving dynamic input from the user or another application. That dynamic input (or something extracted from it) will be inserted into our prompts on-the-fly. We already saw in the last notebook a prompt that included a bunch of boilerplate:
+This will output:
+This kind of prompt template could in theory be flexible to create zero shot or few shot prompts. However, LangChain provides a bit more convenience for few shot prompts. We can first create a template for individual demonstrations within the few shot prompt:
+This will output:
+Multiple formulations
+Why settle for a single prompt and/or set of parameters when you can use mutliple. Try using multiple formulations of your prompt to either:
+Provide multiple options to users; or
+Create multiple candidate predictions, which you can choose from programmatically using a reference free evaluation of those candidates.
+This will output the result for each formulation, which may or may not diverge:
+Consistency and output validation
+Reliability and consistency in LLM output is a major problem for the ""last mile"" of LLM integrations. You could get a whole variety of outputs from your model, and some of these outputs could be inaccurate or harmful in other ways (e.g., toxic).
+Prediction Guard allows you to validate the consistency, factuality, and toxicity of your LLMs outputs. Consistency refers to the internal (or self) model consistency and ensures that the model itself is giving a consistent reply. Factuality checks for the factual consistency of the output with context in the prompt (which is expecially useful if you are embedding retrieved context in prompts). Toxicity measures the harmful language included in the output, such as curse words, slurs, hate speech, etc.
+To ensure self-consistency:
+You can get a score for factual consistency (0 to 1, which higher numbers being more confidently factually consistent) using themethod and providing a reference text against which to check. This is very relevant to RAG (e.g., chat over your docs) sort of use cases where you have some external context, and you want to ensure that the output is consistent with that context.
+This will output something like:
+Whereas, if we try to adversarially produce factual inconsistencies:
+We might get this kind of output:
+To prevent toxic outputs:
+The above will likely generate toxic output, but thanks to Prediction Guard, you should only see the following:"
+8,Chat Completions,/usingllms/chat,"Chat Completions
+(Run this example in Google Colabhere(opens in a new tab))
+We briefly introduced few shot chat prompts in the basic prompting tutorial. However, chat is a special scenario when it comes to LLMs because: (1) it is a very frequently occuring use case; (2) there are many models fine-tuned specifically for chat; and (3) the handling of message threads, context, and instructions in chat prompts is always the same.
+As such, Prediction Guard has specifically created a ""chat completions"" enpoint within its API and Python client. This tutorial will demonstrate how to easy create a simple chatbot with the chat completions endpoint.
+Dependencies and imports
+Similar to the last notebook, you will need to install Prediction Guard and add your token.
+Basic chat completion
+Chat completions are enabled in the Prediction Guard API for only certain of the models. You don't have to worry about special prompt templates when doing these completions as they are already implemented.
+To perform a chat completion, you need to create an array of. Each message object should have a:
+- ""system"", ""user"", or ""assistant""
+- the text associated with the message
+You can utilize a single ""system"" role prompt to give general instructions to the bot. Then you should include the message memory from your chatbot in the message array. This gives the model the relevant context from the conversation to respond appropriately.
+Simple chatbot
+Here we will show the chat functionality with the most simple of chat UI, which just asks for messages and prints the message thread. We will create an evolving message thread and respond with the chat completion portion of the Python client highlighted above."
+9,Chaining and Retrieval,/usingllms/augmentation,"Chaining and Retrieval
+(Run this example in Google Colabhere(opens in a new tab))
+We've actually already seen how it can be useful to ""chain"" various LLM operations together (see other notebooks underUsing LLMs). In theHinglish chat examplewe chained a response generation and then a machine translation using LLMs.
+As you solve problems with LLMs, do NOT always think about your task as a single prompt.Decompose your problem into multiple steps. Just like programming which uses multiple functions, classes, etc. LLM integration is a new kind of reasoning engine that you can ""program"" in a multi-step, conditional, control flow sort of fashion.
+Further, enterprise LLM appllications need reliability, trust, and consistency.Because LLMs only predict probable text, they have no understanding or connection to reality.This produceshallucinationsthat can be part of a coherent text block but factually (or otherwise) wrong. To deal with this we need togroundon LLM operations with external data.
+Dependencies and imports
+We will use LangChain, LanceDB, and a few other things in this tutorial.
+Chaining
+Le'ts say that we are trying to create a response to a user and we want our LLM to follow a variety of rules. We could try to encode all of these instructions into a single prompt. However, as we accumulate more and more instructions the prompt becomes harder and harder for the LLM to follow. Think about an LLM like a child or a high school intern. We want to make things as clear and easy as possible, and complicated instructions don't do that.
+When we run this, at least sometimes, we get bad output because of the complicated instructions:
+Rather than try to handle everything in one call to the LLM, let's decompose our logic into multiple calls that are each simple. We will also add in some non-LLM logic The chain of processing is:
+Prompt 1 - Determine if the message is a request for code generation.
+Prompt 2 - Q&A prompt to answer based on informational context
+Prompt 3 - A general chat template for when there isn't an informational question being asked
+Prompt 4 - A code generation prompt
+Question detector - A non-LLM based detection of whether an input in a question or not
+Now we can supply the relevant context and options to our response chain and see what we get back:
+This should respond with something similar to:
+External knowledge in prompts, Grounding
+We've actually already seen external knowledge within our prompts. In thequestion and answer example, thethat we pasted in was a copy of phrasing on the Domino's website. This ""grounds"" the prompt with external knowledge that is current and factual.
+The answer returned from this prompting is grounded in the external knowledge we inserted, so we aren't relying on the LLM to provide the answer with its own probabilities and based on its training data.
+Retrieval augmentated generation (RAG)
+
+Retrieval-augmented generation (RAG) is an innovative approach that merges the capabilities of large-scale retrieval systems with sequence-to-sequence models to enhance their performance in generating detailed and contextually relevant responses. Instead of relying solely on the knowledge contained within the model's parameters, RAG allows the model to dynamically retrieve and integrate information from an external database or a set of documents during the generation process. By doing so, it provides a bridge between the vast knowledge stored in external sources and the powerful generation abilities of neural models, enabling more informed, diverse, and context-aware outputs in tasks like question answering, dialogue systems, and more.
+This is the text that we will be referencing in our RAG system. I mean, who doesn't want to know more about the linux kernel. The above code should print out something like the following, which is the text on that website:
+Let's clean things up a bit and split it into smaller chunks (that will fit into our LLM prompts):
+Our reference ""chunks"" for retrieval look like the following:
+We will now do a bit more clean up and ""embed"" these chunks to store them in a Vector Database.
+We now have:
+Downloaded our reference data (for eventual retrieval)
+Split that reference data into relevant sized chunks for injection into our prompts
+Embedded those chunks (such that we have a vector that can be used for matching)
+Stored the vectors into the Vector Database (LanceDB in this case)
+We can now try matching to text chunks in the database:
+This will give a dataframe with a ranking of relevant text chunks by a ""distance"" metric. The lower the distance, the more semantically relevant the chunk is to the user query.
+Now we can create a function that will return an answer to a user query based on the RAG methodology:
+This will return something similar to:"
+10,Agents,/usingllms/agents,"Agents
+(Run this example in Google Colabhere(opens in a new tab))
+Prompts, chaining, and prompt engineering is important. However, you might not always know what chain or prompts you need to execute prior to receiving user input or new data. This is where automation andagentscan help. This is an active area of development, but some very useful tooling is available.
+In the following we will explore usingLangChain agents(opens in a new tab)with Prediction Guard LLMs to detect and automate LLM actions.
+We will use LangChain again, but we will also use a Google search API called SerpAPI. You can get a free API key for SerpAPIhere(opens in a new tab).
+To setup an agent that will search the internet on-the-fly and use the LLM to generate a response:
+This will verbosely log the agents activities until it reaching a final answer and generates the response:"
+11,Process LLM Input,/input,"Input Handling
+With Prediction Guard, you get an extra layer of security that allows you to modify of personally identifiable information (PII) in incoming prompts and detect  injection attacks before the prompts hit the LLMs.
+Remove PII from incoming prompts
+Detect prompt injections"
+12,PII modification,/input/PII,"PII anonymization
+Some of your incoming prompts may include personally identifiable information (PII). With Prediction Guard's PII anonymization feature, you can detect PII such as names, email addresses, phone numbers, credit card details, and country-specific ID numbers like SSNs, NHS numbers, and passport numbers. Here's a demonstration of how this works:
+This outputs the PII entity and indices of where the info was found:
+To maintain utility without compromising privacy, you have the option to replace PII with fake names and then forward the modified prompt to the LLM for further processing:
+The processed prompt will then be:
+Other options for theparameter include:(to replace the detected PII with random character),(to mask the PII with the entity type) and(simply replace with)."
+13,Prompt injection detection,/input/injection,"Prompt injection detection
+There are several types of prompt injection attacks, new attacks being discovered at a rapid speed. As you integrate LLMs to regular workflow is is always good to be prepared against these injection attacks.
+With Prediction Guard, you have the ability to assess whether an incoming prompt might be an injection attempt before it reaches the LLM. Get a probability score and the option to block it, safeguarding against potential attacks. Below, you can see the feature in action, demonstrated with a modified version of a known prompt injection:
+We can now get an output with probability of injection
+Let's try this again with an inoccuous prompt:
+which outputs:"
+14,Validating LLM Output,/output,"Validating LLM Output
+With Prediction Guard, you can control the output of LLMs in the following ways (which can be mixed and matched according to your use case and constraints):
+Check for consistency
+Filter for factuality
+Filter for toxicity"
+15,Consistency,/output/consistency,"Consistency
+You might be struggling with inconsistent output from LLMs. Even if you set parameters likelow, you could
+get non-deterministic output from your models. Prediction Guard has built in consistency checks.
+Rather than looping over multiple API calls, you can make one API call that will concurrently prompt an LLM multiple times, check for consistent output, and return an error if there is inconsistent output.
+Let's use the following example prompt template to illustrate the feature.
+To enforce consistency on any output, it's as simple as settingequal to a booleanin thefield/argument to Prediction Guard:
+If there is consistency in the calls to the LLM, you get standard output similar to:
+But if the LLM isn't consistent in the output (in this case the classification of the text), you get an error:"
+16,Factuality,/output/factuality,"Factuality checks
+Navigating the llm landscape can be tricky, especially with hallucinations or inaccurate answers. Whether you're integrating llms into customer-facing products or using them for internal data processing, ensuring the accuracy of the information provided is essential. Prediction Guard used SOTA models for factuality check to evaluate the outputs of LLMs against the context of the prompts. You can either add factuality=True or use /factuality endpoint to directly access this functionality.
+Let's use the following  prompt template to determine some features of an instragram post announcing new products. First, we can define a prompt template:
+We can then check the factulaity score of the answer that is generated by the llm:
+This outputs something similar to:
+Now, we could try to make the model hallucinate. However, the hallucination is caught and Prediction Guard returns an error status:
+This outputs something similar to:
+Standalone Factuality functionality
+You can also call the factuality checking functionality directly using theendpoint, which will enable you to configure thresholds and score arbitrary inputs."
+17,Toxicity,/output/toxicity,"Toxicity checks
+It is likely that the llm output may contain offensive and inappropriate content. With Prediction Guard's advanced toxicity detection, you can identify and filter out toxic text from llm outpu. Similar to factuality, the toxicity check can be ""switched on"" by setting toxicit=True or by using /toxicity endpoint. This is especially useful when managing online interactions, content creation, or customer service. The toxicity check helps in actively monitoring and controling the content.
+Toxicity on Text Completions
+Let's now use the same prompt template from above, but try to generate some comments on the post. These could potentially be toxic, so let's enable Prediction Guard'scheck:
+Note,indicates that Prediction Guard will check for toxicity. It does NOT mean that you want the output to be toxic.
+The above code, generates something like:
+If we try to make the prompt generate toxic comments, then Predition Guard catches this and prevents the toxic output:
+This results in:
+Standalone Toxicity functionality
+You can also call the toxicity checking functionality directly using theendpoint, which will enable you to configure thresholds and score arbitrary inputs."
+18,Guides,/guides,"Guides
+LangChain LLM- How to use LLMs from Prediction Guard as LLMs in LangChain.
+Data analysis with LLMs and DuckDB- Answer questions from your database with Prediction Guard LLMs
+Fact checked information extraction with LLMs- Extract data from unstructured text and check that extracted data for factual consistency
+In the works:
+Simple chatbots
+Multilingual chat
+Generating customer support responses
+Contact us in Slackif you have these or other use cases. We want to make sure you can build amazing LLM applications with Prediction Guard."
+19,Data analytics with LLMs + DuckDB,/guides/ada,"Using LLMs for Data Analysis and SQL Query Generation
+(Run this example in Google Colabhere(opens in a new tab))
+Large language models (LLMs) like Nous-Hermes-Llama2-13B and WizardCoder have demonstrated impressive capabilities for understanding natural language and generating SQL. We can leverage these skills for data analysis by having them automatically generate SQL queries against known database structures.
+Unlike code generation interfaces that attempt to produce executable code from scratch, our approach focuses strictly on generating industry-standard SQL from plain English questions. This provides two major benefits:
+SQL is a well-established language supported across environments, avoiding the need to execute less secure auto-generated code.
+SQL is a well-established language supported across environments, avoiding the need to execute less secure auto-generated code.
+Mapping natural language questions to SQL over known schemas is more robust than attempting to generate arbitrary code for unfamiliar data structures.
+Mapping natural language questions to SQL over known schemas is more robust than attempting to generate arbitrary code for unfamiliar data structures.
+By combining language model understanding of questions with a defined database schema, the system can translate simple natural language queries into precise SQL for fast and reliable data analysis. This makes surfacing insights more accessible compared to manual SQL writing or hopelessly broad code generation.
+Prediction Guard provides access to such state-of-the-art models that maintain strong capabilities while including safety measures to mitigate potential harms. We'll walk through an example of using these LLMs for data analysis on sample Tesla data from Kaggle.Link to dataset(opens in a new tab)
+Understanding Table Data
+This dataset contains information on various used Tesla cars available for purchase on the Tesla website in the United States. The data was collected through web scraping and provides detailed specifications and prices for different Tesla models.
+A closer look at the data :
+We load this sample Tesla used cars dataset with Pandas:
+Next, we will define a semantically meaningful data dictionary which describes table names, column names, and corresponding data counts.
+Query Generation with LLMs
+We'll use the LangChain library to simplify prompting our LLM. Specifically, we will define a prompt template that instructs the LLM to generate a SQL query answering our question based on the table schema:
+The function ""generate_and_process_query"" makes use of the ""Nous-Hermes-Llama2-13B"" language model. It constructs a prompt string by formatting the input question and a DataFrame's value counts into the prompt. The model generates a completion for the prompt, and the resulting text is processed to extract an SQL query using a regular expression. The extracted query is then returned.
+We could also utilize models like ""deepseek-coder-6.7b-instruct"" to get similar outputs.
+Using DuckDB with LLMs
+For this example we useDuckDB(opens in a new tab)to execute the SQL queries produced by the LLM on our Pandas dataframe data. DuckDB could also be used to execute similar queries against live databases or other types of data. DuckDB allows executing standard ANSI SQL queries on a variety of types of data, whether from CSVs or enterprise SQL databases. We can leverage LLMs to auto-generate optimized SQL for analyzing datasets from an organization's existing database infrastructure.
+For demonstration purposes, we load reference data into a DuckDB instance as a proxy for a real production database. However, in a live enterprise environment, DuckDB would integrate directly with systems like Postgres, Redshift, or Snowflake to enable natural language queries across the company's data.
+The underlying architecture supports both standalone CSV analysis as well as live connected databases through DuckDB. By generating ANSI SQL queries, the system can surface insights over existing data warehouses without disruption. This makes adopting natural language conversational analytics seamless for any organization.
+Query Execution
+The below code provides an interactive command line interface that allows users to ask analytical questions in plain English. It then handles the complexity of converting those natural language questions into structured SQL queries that can extract insights from data.
+When a user provides a question through text input, the key mechanism that drives the conversion to SQL is the generate_and_preprocess_query() function. This handles the natural language processing required to analyze the question and construct an appropriate database query.
+The resulting SQL query is printed back to the user before also being executed automatically through integration with the DuckDB database. DuckDB allows running SQL queries in a simple and lightweight manner within the Python environment.
+Finally, the full results of the query are formatted as a Pandas DataFrame and printed to display the retrieved data insights back to the user.
+These steps could be adapted to any dataset and expanded with visualization of result data frames using libraries like."
+20,Data Extraction + Factuality Checks,/guides/data-extraction,"Data extraction example with factuality checks
+This guide demonstrates the extraction of patient information from simulated doctor-patient transcripts. The extracted information is validated using a thefactual consistency checksfrom Prediction Guard. The example focuses on the first 5 rows of a Kaggle dataset containing example simulated doctor-patient transcripts.
+Load the data
+Download the data from thisjson file. You can then use the code below to load the necessary libraries and the dataset from the above mentioned JSON file. The code converts the data into a Pandas DataFrame and selects the first 5 rows for testing.
+Summarize the data
+When processing uniquely formatted, unstructured text with LLMs, it is sometimes useful to summarize the input text into a coherent and well-structured paragraph. The code below defines a prompt for summarization, creates a prompt template using LangChain, and uses theto generate summaries for each transcript. The generated summaries are added as a new column in the DataFrame, and we save them to a CSV file (in case we want them later).
+Extract Information and Perform Factuality Checks
+We can now create a question answering prompt and prompt template to perform the information extraction. This prompt template can be re-used to answer relevant questions from the data - symptoms, Patient name, when the symptom started, level of pain the patient is experiencing, etc.
+Factuality checks are crucial for evaluating the accuracy of information provided by the language model, especially when dealing with high risk data. Prediction Guard leverages state-of-the-art models for factual consistency checks, ensuring the reliability of outputs in reference to the context of the prompts. Thus, after we prompt the model with each question, we evaluate the responses against the corresponding transcript summaries. Factuality scores are generated to assess the accuracy of the answers.
+You can also call the factual consistency checking functionality directly using theendpoint, which will enable you to configure thresholds and score arbitrary inputs."
+21,LangChain LLM Wrapper,/guides/langchainllm,"Using Prediction Guard proxies in LangChain
+LangChain(opens in a new tab)is one of the most popular AI projects, and for good reason! LangChain
+helps you ""Build applications with LLMs through composability."" LangChain doesn't host LLMs or provide a standardized API for controlling LLMs, which is addressed by Prediction Guard. Therefore, combining the two (Prediction Guard + LangChain) gives youa framework for developing controlled and compliant applications powered by language models.
+Installation and Setup
+Install the Python SDK with
+Get a Prediction Guard access token (as describedhere(opens in a new tab)) and set it as the environment variable.
+LLM Wrapper
+There exists a Prediction Guard LLM wrapper, which you can access with
+You can provide the name of the Prediction Guard model as an argument when initializing the LLM:
+You can also provide your access token directly as an argument:
+Finally, you can provide an ""output"" argument that is used to validate the output of the LLM:
+Example usage
+Basic usage of the controlled or guarded LLM wrapper:
+Basic LLM Chaining with the Prediction Guard wrapper:"
+22,ManyChat with LLMs,/guides/ManyChat,"ManyChat Example: Implementing LLM Responses with Prediction Guard API
+Overview
+ManyChat, a popular chat automation tool, is used extensively for customer service. This guide covers two methods to integrate LLM responses using the Prediction Guard API. The first method is straightforward, involving a single question without context, and can be set up quickly without manual coding. The second method is more complex, requiring a lambda function (or similar) to process chat requests, interact with Prediction Guard, and respond via ManyChat'sdynamic block(opens in a new tab). While it's possible to manage context solely within ManyChat, it requires significant manual effort and you will possibly lose context after a certain amount of responses.
+No Context Example
+Our goal in this example is to allow the customer to click a button if they need a question answered. This will send a request to the Prediction Guard Chat API endpoint and the response from the API will be sent to the customer as a Telegram message. They can then choose to ask a new question, speak to an agent, or close the conversation.
+Prerequisites
+Prediction Guard API Key
+Sign up for ManyChat(opens in a new tab)(Premium account required)
+Create two ManyChat User Custom fields(opens in a new tab)(User_Question1, Bot_Response1)
+Create a Telegram bot(opens in a new tab)
+Steps
+Create a New Automation:Begin by setting up a new automation.
+Trigger Automation:Select an appropriate context to trigger the automation.
+Create a Telegram Menu:Use a telegram send message block to build a menu. Include a “Question?” button to send user queries to Prediction Guard.
+User Input Block:Add a block for users to input their questions.
+
+Prompt and Save Response:Prompt users to enter their question and save the response to a custom field (e.g., User_Question1).
+External Request Action Block:Set up this block for making HTTP Post requests tohttps://api.predictionguard.com/chat(opens in a new tab)with necessary headers and body.
+The body should look something like this (make sure to add the user question field to the request):
+
+Clear User Field for Bot_Response1:This should be above the External Request Action.
+Test the Response:Ensure that the system works as intended.
+Map Response to Custom Field:Link the API response to the Bot_Response1 custom field. (The JSON path should be something like this : $.choices[0].message.content)
+Create Response Message Block:Set up a block in ManyChat to relay the response to the user (this should output the Bot_Response1 field).
+Provide Additional Options:Include options for users to ask new questions (this would route back to the external request block), speak to an agent, or close the conversation.
+After completing this example your flow should look like this:
+Include Conversation Context Example
+Our goal in this example is to allow the customer to click a button if they need a question answered. However, notably this will include the context of the previous questions. This will send a request to your personal Lambda function url that processes the ManyChat input, makes an API request to PredictionGuard, and formats the response for ManyChat. The ManyChat response will send the message to the customer and also replace/create the text in your context fields in manychat you will create. They can then choose to continue that conversation, ask a new question (which will clear the context fields), speak to an agent, or close the conversation.
+Prerequisites
+Your Prediction Guard API Key
+Sign-up for Manychat(opens in a new tab)(must be a premium account)
+Create two Manychat User Custom fields(opens in a new tab)(User_Text, Bot_Text)
+Create a telegram bot(opens in a new tab)
+AWS Lambda Function that can be reached by the Internet(opens in a new tab)
+Steps
+Follow Basic Example Steps:Implement steps 1-6 from the no context example.
+Use Dynamic Content:Instead of making an External Request Action Block we are actually going to add a “Get Dynamic Content” block:
+
+Send Data to Lambda Function:Configure the block to send ""Full Contact Data"" to yourLambda function URL(opens in a new tab):
+
+Lambda Function Goals:
+Parse Incoming Request.
+Extract Custom Fields.
+Extract Conversation History which we will save to the User_Text, Bot_Text customTEXTcustomer fieldsyou should have made(opens in a new tab). We will not be using an array type due to current limitations at the time of creating this article. However, these should be stored in an array type format so you can programmatically build thePrediction Guard API chat request(opens in a new tab).
+Append the last customer input to the user messages array (User_Text)
+Prepare Messages for API Request by formatting a request in the format required by thePrediction Guard API(opens in a new tab)
+Make API Request to Prediction Guard and Process Response
+Append the Prediction Guard chat response to the bot messages array (Bot_Text)
+Format ManyChat Response (it must be formatted as noted in thisdoc(opens in a new tab), please make sure to note what platform you are using) This will respond to the user and also save over the new User_Text, Bot_Text with the new complete context.
+JavaScript Example for Lambda Function
+Response Format for ManyChat (Telegram)
+Your response to ManyChat for Telegram should look something likethis(opens in a new tab):
+Configure the rest of the flowThe customer should be able to continue the conversation. This should just route back to the dynamic request without clearing the user fields.The customer should also be able to ask a new question, which should clear the user fields. This action clears the context of the conversation.Finally, it is best to provide a way for a person to reach a real human agent and close the ticket if they so desire.
+Configure the rest of the flow
+The customer should be able to continue the conversation. This should just route back to the dynamic request without clearing the user fields.
+The customer should also be able to ask a new question, which should clear the user fields. This action clears the context of the conversation.
+Finally, it is best to provide a way for a person to reach a real human agent and close the ticket if they so desire.
+After completing this your flow should look like this:
+
+If you followed this example your Telegram bot should be able to respond with the context of the entire conversation:
+
+Happy chatting!"
+23,Reference,/reference,"API Reference
+Python Client
+This package provides functionality developed to simplify interfacing with the Prediction Guard API in Python 3.
+GitHub(opens in a new tab)
+PyPI(opens in a new tab)
+To install the Prediction Guard Python client:
+Requirements:
+Python 3.6+
+REST API
+All of the functionalities of Predition Guard can be accessed through a REST API. The base URL for the API
+is. You can authenticate to the API using youraccess token(opens in a new tab)as a Bearer token."
+24,Chat,/reference/chat,"Chat
+You can get chat text completions (based on a thread of chat messages) from any of the chat enabledmodelsusing theREST API endpoint orPython client class.
+Generate a chat text completion"
+25,Completions,/reference/completions,"Completions
+You can get privacy-conserving text completions from any of theavailable modelsusing a call to theREST API endpoint or theclass in the Python client.
+Generate a text completion"
+26,Factuality,/reference/factuality,"Factuality
+You can get factuality scores (or rather factual consistency scores) from theendpoint orclass in the Python client. This endpoint/Class takes two parameters:
+- A reference text with which you want to compare another text for factual consistency.
+- The candidate text that will be scored for factual consistency.
+The output will include athat ranges from 0.0 to 1.0. The higher the score, the more factuality consistency between theand the.
+Generate a factuality score
+The output will look something like:"
+27,Injection,/reference/injection,"Prompt Injections
+You can check for Prompt Injections from theorclass in the Python client. This endpoint/Class takes two parameters:
+- The prompt you would like to check for potential injections.
+- A boolean for whether you would like any injection to be scored and blocked. (Mainly used in the Completions/Chat endpoints).
+The output will include a score from 0.0 to 1.0. The higher the score, the higher the probability of the checked prompt being an injection.
+Check for Prompt Injection"
+28,Pii,/reference/PII,"PII
+You can check and replace Personal Identifiable Information (PII) from theendpoint orclass in the Python Client. This endpoint/Class takes three parameters:
+- The prompt that you want to check for PII.
+- A boolean for replacing the PII if any is found.
+- The method you would like to use to replace any found PII. The methods are,,, and.
+The output will include the replaced PII if any is present, or will tell you if any PII is in the prompt isis not chosen.
+Check and Replace PII"
+29,Toxicity,/reference/toxicity,"Toxicity
+You can get toxicity scores from theendpoint orclass in the Python client. This endpoint/Class takes a singleparameter, which should include the candidate text to be scored for toxicity. The output will include athat ranges from 0.0 to 1.0. The higher the score, the more toxic the.
+Generate a toxicity score
+The output will look something like:"
+30,Translate,/reference/translate,"Translate
+You can get machine translation and translation quality scores from theendpoint. This endpoint/class takes three parameters:
+- The text to translate.
+- The ISO 639 source language code (e.g. 'eng' for English).
+- The ISO 639 target language code (e.g 'fra' for French).
+Under the hood, theendpoint simultaneously leverages multiple state-of-the-art LLM and machine translation models to perform translations. The translations from these models are scored and ranked using reference-free quality estimation models. This allows us to select the highest quality machine translation for the given source and target languages.
+Supported Languages
+Our translation API supports a wide range of languages, including but not limited to English, Hindi, French, Spanish, German, and more. Refer to the language codes to identify specific languages.
+
+
+The /translate endpoint will return a JSON object response with two fields:
+- The translated text.
+- A score from -1.0 to 1.0 representing the translation quality. Higher the score better the quality.
+Generate a translation
+The output will look something like:"
+31,Available Models,/models,"Available Models
+Model Options- We host a variety of the latest state-of-the-art LLMs in a privacy conserving manner. These models have a variety of strengths and capabilities. Look through these model details to see which of them might fit your use case.
+Prompt Formats- You might be used to entering simple text prompts into systems like ChatGPT. However, when you utilize certain open access LLMs directly, you might want to follow a specific prompt format. These models are fine-tuned using prompt data, and if you match your prompt formats to that training data format then you can see boosts in performance.
+Contact us in Slackif you are having issues finding the right model. We want to make sure you can build amazing LLM applications with Prediction Guard."
+32,Model Options,/models/details,"Model Options
+Using Prediction Guard gives you quick and easy access to state-of-the-art LLMs, without you needing to spend weeks figuring out all of the implementation details, managing a bunch of different API specs, and setting up a secure infrastructure for model deployments.
+LLMs are hosted by Prediction Guard in a secure, privacy conserving environment built in partnership with Intel's Liftoff program for startups.
+Note - Prediction Guard does NOT save or share any data sent to these models (or responses from the models). Further, we are able to sign a BAA for customers needing HIPAA compliance.Contact supportwith any questions.
+Note - We only integrate models that are licensed permissively for commercial use.
+Open Access LLMs (what most of our customers use) 🚀
+Open access models are amazing these days! Each of these models was trained by a talented team and released publicly under a permissive license. The data used to train each model and the prompt formatting for each model varies. We've tried to give you some of the relevant details here, but shoot us a messagein Slackwith any questions.
+The best models (start here)
+Other models available
+The models below are available in our API. However, these models scale to zero (i.e., they might not be ready for you to interact with). These models are less frequently accessed by our users, so we suggest you start with the models above. If your company requires one of these models to be up-and-running 24/7.Reach out to us, and we will help make that happen!
+Note if you aren't actively using these models, they are scaled down. As such, your first call to a model might need to ""wake up"" that model inference server. You will get a message ""Waking up model. Try again in a few minutes."" in such cases. Typically it takes around 5-15 minutes to wake up the model server depending on the size of the model. We are actively working on reducing these cold start times.
+Closed LLMs (if you  t̶r̶u̶s̶t̶ need them)
+These models are integrated into our API, but they are not hosted by Prediction Guard in the same manner as the models above.
+Note - You will need your own OpenAI API key to use the models below. Customers worried about data privacy, IP/PII leakage, HIPAA compliance, etc. should look into the above ""Open Access LLMs"" and/or our enterprise deploy.Contact supportwith any questions.
+To use the OpenAI models above, make sure you either: (1) define the environment variableif you are using the Python client; or (2) set the header parameterif you are using the REST API."
+33,Prompt Formats,/models/prompts,"Prompt Formats
+You might be used to entering simple text prompts into systems like ChatGPT. However, when you utilize certain open access LLMs directly, you might want to follow a specific prompt format. These models are fine-tuned using prompt data, and if you match your prompt formats to that training data format then you can see boosts in performance.
+Check out themodel details pageto learn which prompt formats match certain LLMs. We've included some of the most important prompt formats below.
+Note on Chat model prompts- For your convenience, we automatically apply the right prompt formats when you supply aobject to ourendpoint or via themethod in the Python client. You don't have to add in special tokens or apply the below prompt formats as this will duplicate the formatting. However, if you want to use chat-tuned models in theendpoint or via themethod, you should apply the appropriate one of the below prompt formats.
+Alpaca
+This format has two options. First, for prompts that are single instructions, without relevant context (e.g., retrieved context):
+For prompts where context is injected:
+(Replace the portions of the prompt below inwith the appropriate information, and do not keep theorcharacters)
+Neural Chat
+(Replace the portions of the prompt below inwith the appropriate information, and do not keep theorcharacters)
+ChatML
+(Replace the portions of the prompt below in curly braceswith the appropriate information, and do not keep the curly braces)
+SQLCoder
+(Replace the portions of the prompt below in curly braceswith the appropriate information, and do not keep the curly braces)
+Deepseek
+(Replace the portions of the prompt below in curly braceswith the appropriate information, and do not keep the curly braces)"
+34,Using LLMs,/usingllms,"Using LLMs - Prediction Guard in action
+We've worked on a wide variety of enterprise LLM use cases across various industries. Throughout this work, we've found the following principles of LLM usage to be critical and transferable. If you are getting started with Prediction Guard or LLMs in general, the below tutorials about LLM usage should help you level up quickly. Each tutorial can be run in Google Colab without any local environment setup.
+Accessing LLMs- Use your Prediction Guard access token to run your first text completions
+Basic prompting- Learn how to prompt these models for autocomplete, zero shot instructions, and few shot (or in context) learning
+Chat- Learn how to use LLMs to generate responses in a message thread and build chatbots
+Prompt engineering- Leverage prompt templates and model parameters to hone in on the right workflows
+Augmentation and retrieval- Augment your prompts with your own data
+Agents- Create more complex automations with agentic workflows
+Data Extraction- Extract relevant data from text output and perform factuality checks
+Note- These examples will be given in Python, but the same workflows could be accomplished in other languages via our REST API."
+35,Accessing LLMs,/usingllms/accessing,"Accessing LLMs
+(Run this example in Google Colabhere(opens in a new tab))
+Promptingis the process of providing a partial, usually text, input to a model. As we discussed in the last chapter, models will then use their parameterized data transformations to find a probable completion or output that matches the prompt.
+To run any prompt through a model, we need to set a foundation for how we will access generative AI models and perform inference. There is a huge variety in the landscape of generative AI models in terms of size, access patterns, licensing, etc. However, a common theme is the usage of LLMs through a REST API, which is either:
+Provided by a third party service (OpenAI, Anthropic, Cohere, etc.)
+Self-hosted in your own infrastructure or in an account you control with a model hosting provider (Replicate, Baseten, etc.)
+Self-hosted using a DIY model serving API (Flask, FastAPI, etc.)
+We will usePrediction Guard(opens in a new tab)to call open access LLMs (like Mistral, Llama 2, WizardCoder, etc.) via a standardized OpenAI-like API. This will allow us to explore the full range of LLMs available. Further, it will illustrate how companies can access a wide range of models (outside of the GPT family).
+In order to ""prompt"" an LLM via Prediction Guard (and eventually engineer prompts), you will need to first install the Python client and supply your access token as an environment variable:
+You can find out more about the models available via the Prediction Guard APIin the docs(opens in a new tab), and you can list out the model names via this command:
+Generating text with one of these models is then just single request for a ""Completion"" (note, we also support chat completions). Here we will call themodel and try to have it autocomplete a joke.
+This should result in something similar to the following JSON output which includes the completion:
+The actual text completion is included in."
+36,Basic Prompting,/usingllms/prompting,"Basic Prompting
+(Run this example in Google Colabhere(opens in a new tab))
+Prompt and AI Engineeringis the emerging developer task of designing and optimizing prompts (and associated workflows/ infra) for AI models to achieve specific goals or outcomes. It involves creating high-quality inputs that can elicit accurate and relevant responses from AI models. The next several examples will help get you up to speed on common prompt engineering strategies.
+Dependencies and imports
+Similar to the last notebook, you will need to install Prediction Guard and add your token.
+Autocomplete
+Because LLMs are configured/ trained to perform the task of text completion, the most basic kind of prompt that you might provide is an autocomplete prompt. Regardless of prompt structure, the model function will compute the probabilities of words, tokens, or characters that might follow in the sequence of words, tokens, or characters that you provided in the prompt.
+Depending on the desired outcome, the prompt may be a single sentence, a paragraph, or even an partial story. Additionally, the prompt may be open-ended, providing only a general topic or theme, or it may be more specific, outlining a particular scenario or plot.
+This prompt should result in an output similar to:
+Other examples include the following (note that we can also complete things like SQL statements):
+Zero-shot prompts
+Autocomplete is a great place to start, but it is only that: a place to start. Throughout this workshop we will be putting on our prompt engineering hats to do some impressive things with generative AI. As we continue along that path, there is a general prompt structure that will pop up over and over again:
+One of the easiest ways to leverage the above prompt structure is to describe a task (e.g., sentiment analysis), provide a single piece of data as context, and then provide a single output indicator. This is called azero shot prompt. Here is a zero-shot prompt for performing sentiment analysis:
+Which should output.
+Note- We are doing some post-processing on the text output (stripping out extra whitespace and only getting the first word/label), because the model will just continue generating text in certain cases. We will return to this later on in the tutorials.
+Note- We are using a very specific prompt format (with theetc. markers). This is the alpaca prompt format that is preferred by themodel. Each model might have a different preferred prompt format, and you can find out more about thathere.
+Another example of zero-shot prompting is the following for question and answer:
+Few shot prompts
+When your task is slightly more complicated or requires a few more leaps in reasoning to generate an appropriate response, you can turn to few shot prompting (aka in context learning). In few shot prompting, a small number of gold standard demonstrations are integrated into the prompt. These demonstrations serve as example (context, output) pairs for the model, which serve to tune the probable output on-the-fly to what we ideally want in the output.
+Although not always necessary (as seen above), few shot prompting generally produces better results than single shot prompting in terms of consistency and similarity to your ideal outputs.
+Let's reformat our sentiment prompt to include demonstrations:
+This should output.
+Another common example of few shot prompting is chat conversations. Although Prediction Guard has specific functionality to support chat memory and threads. You can actually use any non-chat-specific model to generate a chat response. For example:
+This will output the Hinglish response similar to:
+If you don't speak Hinglish, you can check out the translation using another prompt:
+Which will output similar to:"
+37,Prompt Engineering,/usingllms/engineering,"Prompt Engineering
+(Run this example in Google Colabhere(opens in a new tab))
+As we have seen in the previous examples, it is easy enough to prompt a generative AI model. Shoot off an API call, and suddently you have an answer, a machine translation, sentiment analyzed, or a chat message generated. However, going from ""prompting"" to ai engineering of your AI model based processes is a bit more involved. The importance of the ""engineering"" in prompt engineering has become increasingly apparent, as models have become more complex and powerful, and the demand for more accurate and interpretable results has grown.
+The ability to engineer effective prompts and related workflows allows us to configure and tune model responses to better suit our specific needs (e.g., for a particular industry like healthcare), whether we are trying to improve the quality of the output, reduce bias, or optimize for efficiency.
+Dependencies and imports
+This time we will add a new import!
+Prompt templates
+One of the best practices that we will discuss below involves testing and evaluating model output using example prompt contexts and formulations. In order to institute this practice, we need a way to rapidly and programmatically format prompts with a variety of contexts. We will need this in our applications anyway, because in production we will be receiving dynamic input from the user or another application. That dynamic input (or something extracted from it) will be inserted into our prompts on-the-fly. We already saw in the last notebook a prompt that included a bunch of boilerplate:
+This will output:
+This kind of prompt template could in theory be flexible to create zero shot or few shot prompts. However, LangChain provides a bit more convenience for few shot prompts. We can first create a template for individual demonstrations within the few shot prompt:
+This will output:
+Multiple formulations
+Why settle for a single prompt and/or set of parameters when you can use mutliple. Try using multiple formulations of your prompt to either:
+Provide multiple options to users; or
+Create multiple candidate predictions, which you can choose from programmatically using a reference free evaluation of those candidates.
+This will output the result for each formulation, which may or may not diverge:
+Consistency and output validation
+Reliability and consistency in LLM output is a major problem for the ""last mile"" of LLM integrations. You could get a whole variety of outputs from your model, and some of these outputs could be inaccurate or harmful in other ways (e.g., toxic).
+Prediction Guard allows you to validate the consistency, factuality, and toxicity of your LLMs outputs. Consistency refers to the internal (or self) model consistency and ensures that the model itself is giving a consistent reply. Factuality checks for the factual consistency of the output with context in the prompt (which is expecially useful if you are embedding retrieved context in prompts). Toxicity measures the harmful language included in the output, such as curse words, slurs, hate speech, etc.
+To ensure self-consistency:
+You can get a score for factual consistency (0 to 1, which higher numbers being more confidently factually consistent) using themethod and providing a reference text against which to check. This is very relevant to RAG (e.g., chat over your docs) sort of use cases where you have some external context, and you want to ensure that the output is consistent with that context.
+This will output something like:
+Whereas, if we try to adversarially produce factual inconsistencies:
+We might get this kind of output:
+To prevent toxic outputs:
+The above will likely generate toxic output, but thanks to Prediction Guard, you should only see the following:"
+38,Chat Completions,/usingllms/chat,"Chat Completions
+(Run this example in Google Colabhere(opens in a new tab))
+We briefly introduced few shot chat prompts in the basic prompting tutorial. However, chat is a special scenario when it comes to LLMs because: (1) it is a very frequently occuring use case; (2) there are many models fine-tuned specifically for chat; and (3) the handling of message threads, context, and instructions in chat prompts is always the same.
+As such, Prediction Guard has specifically created a ""chat completions"" enpoint within its API and Python client. This tutorial will demonstrate how to easy create a simple chatbot with the chat completions endpoint.
+Dependencies and imports
+Similar to the last notebook, you will need to install Prediction Guard and add your token.
+Basic chat completion
+Chat completions are enabled in the Prediction Guard API for only certain of the models. You don't have to worry about special prompt templates when doing these completions as they are already implemented.
+To perform a chat completion, you need to create an array of. Each message object should have a:
+- ""system"", ""user"", or ""assistant""
+- the text associated with the message
+You can utilize a single ""system"" role prompt to give general instructions to the bot. Then you should include the message memory from your chatbot in the message array. This gives the model the relevant context from the conversation to respond appropriately.
+Simple chatbot
+Here we will show the chat functionality with the most simple of chat UI, which just asks for messages and prints the message thread. We will create an evolving message thread and respond with the chat completion portion of the Python client highlighted above."
+39,Chaining and Retrieval,/usingllms/augmentation,"Chaining and Retrieval
+(Run this example in Google Colabhere(opens in a new tab))
+We've actually already seen how it can be useful to ""chain"" various LLM operations together (see other notebooks underUsing LLMs). In theHinglish chat examplewe chained a response generation and then a machine translation using LLMs.
+As you solve problems with LLMs, do NOT always think about your task as a single prompt.Decompose your problem into multiple steps. Just like programming which uses multiple functions, classes, etc. LLM integration is a new kind of reasoning engine that you can ""program"" in a multi-step, conditional, control flow sort of fashion.
+Further, enterprise LLM appllications need reliability, trust, and consistency.Because LLMs only predict probable text, they have no understanding or connection to reality.This produceshallucinationsthat can be part of a coherent text block but factually (or otherwise) wrong. To deal with this we need togroundon LLM operations with external data.
+Dependencies and imports
+We will use LangChain, LanceDB, and a few other things in this tutorial.
+Chaining
+Le'ts say that we are trying to create a response to a user and we want our LLM to follow a variety of rules. We could try to encode all of these instructions into a single prompt. However, as we accumulate more and more instructions the prompt becomes harder and harder for the LLM to follow. Think about an LLM like a child or a high school intern. We want to make things as clear and easy as possible, and complicated instructions don't do that.
+When we run this, at least sometimes, we get bad output because of the complicated instructions:
+Rather than try to handle everything in one call to the LLM, let's decompose our logic into multiple calls that are each simple. We will also add in some non-LLM logic The chain of processing is:
+Prompt 1 - Determine if the message is a request for code generation.
+Prompt 2 - Q&A prompt to answer based on informational context
+Prompt 3 - A general chat template for when there isn't an informational question being asked
+Prompt 4 - A code generation prompt
+Question detector - A non-LLM based detection of whether an input in a question or not
+Now we can supply the relevant context and options to our response chain and see what we get back:
+This should respond with something similar to:
+External knowledge in prompts, Grounding
+We've actually already seen external knowledge within our prompts. In thequestion and answer example, thethat we pasted in was a copy of phrasing on the Domino's website. This ""grounds"" the prompt with external knowledge that is current and factual.
+The answer returned from this prompting is grounded in the external knowledge we inserted, so we aren't relying on the LLM to provide the answer with its own probabilities and based on its training data.
+Retrieval augmentated generation (RAG)
+
+Retrieval-augmented generation (RAG) is an innovative approach that merges the capabilities of large-scale retrieval systems with sequence-to-sequence models to enhance their performance in generating detailed and contextually relevant responses. Instead of relying solely on the knowledge contained within the model's parameters, RAG allows the model to dynamically retrieve and integrate information from an external database or a set of documents during the generation process. By doing so, it provides a bridge between the vast knowledge stored in external sources and the powerful generation abilities of neural models, enabling more informed, diverse, and context-aware outputs in tasks like question answering, dialogue systems, and more.
+This is the text that we will be referencing in our RAG system. I mean, who doesn't want to know more about the linux kernel. The above code should print out something like the following, which is the text on that website:
+Let's clean things up a bit and split it into smaller chunks (that will fit into our LLM prompts):
+Our reference ""chunks"" for retrieval look like the following:
+We will now do a bit more clean up and ""embed"" these chunks to store them in a Vector Database.
+We now have:
+Downloaded our reference data (for eventual retrieval)
+Split that reference data into relevant sized chunks for injection into our prompts
+Embedded those chunks (such that we have a vector that can be used for matching)
+Stored the vectors into the Vector Database (LanceDB in this case)
+We can now try matching to text chunks in the database:
+This will give a dataframe with a ranking of relevant text chunks by a ""distance"" metric. The lower the distance, the more semantically relevant the chunk is to the user query.
+Now we can create a function that will return an answer to a user query based on the RAG methodology:
+This will return something similar to:"
+40,Agents,/usingllms/agents,"Agents
+(Run this example in Google Colabhere(opens in a new tab))
+Prompts, chaining, and prompt engineering is important. However, you might not always know what chain or prompts you need to execute prior to receiving user input or new data. This is where automation andagentscan help. This is an active area of development, but some very useful tooling is available.
+In the following we will explore usingLangChain agents(opens in a new tab)with Prediction Guard LLMs to detect and automate LLM actions.
+We will use LangChain again, but we will also use a Google search API called SerpAPI. You can get a free API key for SerpAPIhere(opens in a new tab).
+To setup an agent that will search the internet on-the-fly and use the LLM to generate a response:
+This will verbosely log the agents activities until it reaching a final answer and generates the response:"
+41,Process LLM Input,/input,"Input Handling
+With Prediction Guard, you get an extra layer of security that allows you to modify of personally identifiable information (PII) in incoming prompts and detect  injection attacks before the prompts hit the LLMs.
+Remove PII from incoming prompts
+Detect prompt injections"
+42,PII modification,/input/PII,"PII anonymization
+Some of your incoming prompts may include personally identifiable information (PII). With Prediction Guard's PII anonymization feature, you can detect PII such as names, email addresses, phone numbers, credit card details, and country-specific ID numbers like SSNs, NHS numbers, and passport numbers. Here's a demonstration of how this works:
+This outputs the PII entity and indices of where the info was found:
+To maintain utility without compromising privacy, you have the option to replace PII with fake names and then forward the modified prompt to the LLM for further processing:
+The processed prompt will then be:
+Other options for theparameter include:(to replace the detected PII with random character),(to mask the PII with the entity type) and(simply replace with)."
+43,Prompt injection detection,/input/injection,"Prompt injection detection
+There are several types of prompt injection attacks, new attacks being discovered at a rapid speed. As you integrate LLMs to regular workflow is is always good to be prepared against these injection attacks.
+With Prediction Guard, you have the ability to assess whether an incoming prompt might be an injection attempt before it reaches the LLM. Get a probability score and the option to block it, safeguarding against potential attacks. Below, you can see the feature in action, demonstrated with a modified version of a known prompt injection:
+We can now get an output with probability of injection
+Let's try this again with an inoccuous prompt:
+which outputs:"
+44,Validating LLM Output,/output,"Validating LLM Output
+With Prediction Guard, you can control the output of LLMs in the following ways (which can be mixed and matched according to your use case and constraints):
+Check for consistency
+Filter for factuality
+Filter for toxicity"
+45,Consistency,/output/consistency,"Consistency
+You might be struggling with inconsistent output from LLMs. Even if you set parameters likelow, you could
+get non-deterministic output from your models. Prediction Guard has built in consistency checks.
+Rather than looping over multiple API calls, you can make one API call that will concurrently prompt an LLM multiple times, check for consistent output, and return an error if there is inconsistent output.
+Let's use the following example prompt template to illustrate the feature.
+To enforce consistency on any output, it's as simple as settingequal to a booleanin thefield/argument to Prediction Guard:
+If there is consistency in the calls to the LLM, you get standard output similar to:
+But if the LLM isn't consistent in the output (in this case the classification of the text), you get an error:"
+46,Factuality,/output/factuality,"Factuality checks
+Navigating the llm landscape can be tricky, especially with hallucinations or inaccurate answers. Whether you're integrating llms into customer-facing products or using them for internal data processing, ensuring the accuracy of the information provided is essential. Prediction Guard used SOTA models for factuality check to evaluate the outputs of LLMs against the context of the prompts. You can either add factuality=True or use /factuality endpoint to directly access this functionality.
+Let's use the following  prompt template to determine some features of an instragram post announcing new products. First, we can define a prompt template:
+We can then check the factulaity score of the answer that is generated by the llm:
+This outputs something similar to:
+Now, we could try to make the model hallucinate. However, the hallucination is caught and Prediction Guard returns an error status:
+This outputs something similar to:
+Standalone Factuality functionality
+You can also call the factuality checking functionality directly using theendpoint, which will enable you to configure thresholds and score arbitrary inputs."
+47,Toxicity,/output/toxicity,"Toxicity checks
+It is likely that the llm output may contain offensive and inappropriate content. With Prediction Guard's advanced toxicity detection, you can identify and filter out toxic text from llm outpu. Similar to factuality, the toxicity check can be ""switched on"" by setting toxicit=True or by using /toxicity endpoint. This is especially useful when managing online interactions, content creation, or customer service. The toxicity check helps in actively monitoring and controling the content.
+Toxicity on Text Completions
+Let's now use the same prompt template from above, but try to generate some comments on the post. These could potentially be toxic, so let's enable Prediction Guard'scheck:
+Note,indicates that Prediction Guard will check for toxicity. It does NOT mean that you want the output to be toxic.
+The above code, generates something like:
+If we try to make the prompt generate toxic comments, then Predition Guard catches this and prevents the toxic output:
+This results in:
+Standalone Toxicity functionality
+You can also call the toxicity checking functionality directly using theendpoint, which will enable you to configure thresholds and score arbitrary inputs."
+48,Guides,/guides,"Guides
+LangChain LLM- How to use LLMs from Prediction Guard as LLMs in LangChain.
+Data analysis with LLMs and DuckDB- Answer questions from your database with Prediction Guard LLMs
+Fact checked information extraction with LLMs- Extract data from unstructured text and check that extracted data for factual consistency
+In the works:
+Simple chatbots
+Multilingual chat
+Generating customer support responses
+Contact us in Slackif you have these or other use cases. We want to make sure you can build amazing LLM applications with Prediction Guard."
+49,Data analytics with LLMs + DuckDB,/guides/ada,"Using LLMs for Data Analysis and SQL Query Generation
+(Run this example in Google Colabhere(opens in a new tab))
+Large language models (LLMs) like Nous-Hermes-Llama2-13B and WizardCoder have demonstrated impressive capabilities for understanding natural language and generating SQL. We can leverage these skills for data analysis by having them automatically generate SQL queries against known database structures.
+Unlike code generation interfaces that attempt to produce executable code from scratch, our approach focuses strictly on generating industry-standard SQL from plain English questions. This provides two major benefits:
+SQL is a well-established language supported across environments, avoiding the need to execute less secure auto-generated code.
+SQL is a well-established language supported across environments, avoiding the need to execute less secure auto-generated code.
+Mapping natural language questions to SQL over known schemas is more robust than attempting to generate arbitrary code for unfamiliar data structures.
+Mapping natural language questions to SQL over known schemas is more robust than attempting to generate arbitrary code for unfamiliar data structures.
+By combining language model understanding of questions with a defined database schema, the system can translate simple natural language queries into precise SQL for fast and reliable data analysis. This makes surfacing insights more accessible compared to manual SQL writing or hopelessly broad code generation.
+Prediction Guard provides access to such state-of-the-art models that maintain strong capabilities while including safety measures to mitigate potential harms. We'll walk through an example of using these LLMs for data analysis on sample Tesla data from Kaggle.Link to dataset(opens in a new tab)
+Understanding Table Data
+This dataset contains information on various used Tesla cars available for purchase on the Tesla website in the United States. The data was collected through web scraping and provides detailed specifications and prices for different Tesla models.
+A closer look at the data :
+We load this sample Tesla used cars dataset with Pandas:
+Next, we will define a semantically meaningful data dictionary which describes table names, column names, and corresponding data counts.
+Query Generation with LLMs
+We'll use the LangChain library to simplify prompting our LLM. Specifically, we will define a prompt template that instructs the LLM to generate a SQL query answering our question based on the table schema:
+The function ""generate_and_process_query"" makes use of the ""Nous-Hermes-Llama2-13B"" language model. It constructs a prompt string by formatting the input question and a DataFrame's value counts into the prompt. The model generates a completion for the prompt, and the resulting text is processed to extract an SQL query using a regular expression. The extracted query is then returned.
+We could also utilize models like ""deepseek-coder-6.7b-instruct"" to get similar outputs.
+Using DuckDB with LLMs
+For this example we useDuckDB(opens in a new tab)to execute the SQL queries produced by the LLM on our Pandas dataframe data. DuckDB could also be used to execute similar queries against live databases or other types of data. DuckDB allows executing standard ANSI SQL queries on a variety of types of data, whether from CSVs or enterprise SQL databases. We can leverage LLMs to auto-generate optimized SQL for analyzing datasets from an organization's existing database infrastructure.
+For demonstration purposes, we load reference data into a DuckDB instance as a proxy for a real production database. However, in a live enterprise environment, DuckDB would integrate directly with systems like Postgres, Redshift, or Snowflake to enable natural language queries across the company's data.
+The underlying architecture supports both standalone CSV analysis as well as live connected databases through DuckDB. By generating ANSI SQL queries, the system can surface insights over existing data warehouses without disruption. This makes adopting natural language conversational analytics seamless for any organization.
+Query Execution
+The below code provides an interactive command line interface that allows users to ask analytical questions in plain English. It then handles the complexity of converting those natural language questions into structured SQL queries that can extract insights from data.
+When a user provides a question through text input, the key mechanism that drives the conversion to SQL is the generate_and_preprocess_query() function. This handles the natural language processing required to analyze the question and construct an appropriate database query.
+The resulting SQL query is printed back to the user before also being executed automatically through integration with the DuckDB database. DuckDB allows running SQL queries in a simple and lightweight manner within the Python environment.
+Finally, the full results of the query are formatted as a Pandas DataFrame and printed to display the retrieved data insights back to the user.
+These steps could be adapted to any dataset and expanded with visualization of result data frames using libraries like."
+50,Data Extraction + Factuality Checks,/guides/data-extraction,"Data extraction example with factuality checks
+This guide demonstrates the extraction of patient information from simulated doctor-patient transcripts. The extracted information is validated using a thefactual consistency checksfrom Prediction Guard. The example focuses on the first 5 rows of a Kaggle dataset containing example simulated doctor-patient transcripts.
+Load the data
+Download the data from thisjson file. You can then use the code below to load the necessary libraries and the dataset from the above mentioned JSON file. The code converts the data into a Pandas DataFrame and selects the first 5 rows for testing.
+Summarize the data
+When processing uniquely formatted, unstructured text with LLMs, it is sometimes useful to summarize the input text into a coherent and well-structured paragraph. The code below defines a prompt for summarization, creates a prompt template using LangChain, and uses theto generate summaries for each transcript. The generated summaries are added as a new column in the DataFrame, and we save them to a CSV file (in case we want them later).
+Extract Information and Perform Factuality Checks
+We can now create a question answering prompt and prompt template to perform the information extraction. This prompt template can be re-used to answer relevant questions from the data - symptoms, Patient name, when the symptom started, level of pain the patient is experiencing, etc.
+Factuality checks are crucial for evaluating the accuracy of information provided by the language model, especially when dealing with high risk data. Prediction Guard leverages state-of-the-art models for factual consistency checks, ensuring the reliability of outputs in reference to the context of the prompts. Thus, after we prompt the model with each question, we evaluate the responses against the corresponding transcript summaries. Factuality scores are generated to assess the accuracy of the answers.
+You can also call the factual consistency checking functionality directly using theendpoint, which will enable you to configure thresholds and score arbitrary inputs."
+51,LangChain LLM Wrapper,/guides/langchainllm,"Using Prediction Guard proxies in LangChain
+LangChain(opens in a new tab)is one of the most popular AI projects, and for good reason! LangChain
+helps you ""Build applications with LLMs through composability."" LangChain doesn't host LLMs or provide a standardized API for controlling LLMs, which is addressed by Prediction Guard. Therefore, combining the two (Prediction Guard + LangChain) gives youa framework for developing controlled and compliant applications powered by language models.
+Installation and Setup
+Install the Python SDK with
+Get a Prediction Guard access token (as describedhere(opens in a new tab)) and set it as the environment variable.
+LLM Wrapper
+There exists a Prediction Guard LLM wrapper, which you can access with
+You can provide the name of the Prediction Guard model as an argument when initializing the LLM:
+You can also provide your access token directly as an argument:
+Finally, you can provide an ""output"" argument that is used to validate the output of the LLM:
+Example usage
+Basic usage of the controlled or guarded LLM wrapper:
+Basic LLM Chaining with the Prediction Guard wrapper:"
+52,ManyChat with LLMs,/guides/ManyChat,"ManyChat Example: Implementing LLM Responses with Prediction Guard API
+Overview
+ManyChat, a popular chat automation tool, is used extensively for customer service. This guide covers two methods to integrate LLM responses using the Prediction Guard API. The first method is straightforward, involving a single question without context, and can be set up quickly without manual coding. The second method is more complex, requiring a lambda function (or similar) to process chat requests, interact with Prediction Guard, and respond via ManyChat'sdynamic block(opens in a new tab). While it's possible to manage context solely within ManyChat, it requires significant manual effort and you will possibly lose context after a certain amount of responses.
+No Context Example
+Our goal in this example is to allow the customer to click a button if they need a question answered. This will send a request to the Prediction Guard Chat API endpoint and the response from the API will be sent to the customer as a Telegram message. They can then choose to ask a new question, speak to an agent, or close the conversation.
+Prerequisites
+Prediction Guard API Key
+Sign up for ManyChat(opens in a new tab)(Premium account required)
+Create two ManyChat User Custom fields(opens in a new tab)(User_Question1, Bot_Response1)
+Create a Telegram bot(opens in a new tab)
+Steps
+Create a New Automation:Begin by setting up a new automation.
+Trigger Automation:Select an appropriate context to trigger the automation.
+Create a Telegram Menu:Use a telegram send message block to build a menu. Include a “Question?” button to send user queries to Prediction Guard.
+User Input Block:Add a block for users to input their questions.
+
+Prompt and Save Response:Prompt users to enter their question and save the response to a custom field (e.g., User_Question1).
+External Request Action Block:Set up this block for making HTTP Post requests tohttps://api.predictionguard.com/chat(opens in a new tab)with necessary headers and body.
+The body should look something like this (make sure to add the user question field to the request):
+
+Clear User Field for Bot_Response1:This should be above the External Request Action.
+Test the Response:Ensure that the system works as intended.
+Map Response to Custom Field:Link the API response to the Bot_Response1 custom field. (The JSON path should be something like this : $.choices[0].message.content)
+Create Response Message Block:Set up a block in ManyChat to relay the response to the user (this should output the Bot_Response1 field).
+Provide Additional Options:Include options for users to ask new questions (this would route back to the external request block), speak to an agent, or close the conversation.
+After completing this example your flow should look like this:
+Include Conversation Context Example
+Our goal in this example is to allow the customer to click a button if they need a question answered. However, notably this will include the context of the previous questions. This will send a request to your personal Lambda function url that processes the ManyChat input, makes an API request to PredictionGuard, and formats the response for ManyChat. The ManyChat response will send the message to the customer and also replace/create the text in your context fields in manychat you will create. They can then choose to continue that conversation, ask a new question (which will clear the context fields), speak to an agent, or close the conversation.
+Prerequisites
+Your Prediction Guard API Key
+Sign-up for Manychat(opens in a new tab)(must be a premium account)
+Create two Manychat User Custom fields(opens in a new tab)(User_Text, Bot_Text)
+Create a telegram bot(opens in a new tab)
+AWS Lambda Function that can be reached by the Internet(opens in a new tab)
+Steps
+Follow Basic Example Steps:Implement steps 1-6 from the no context example.
+Use Dynamic Content:Instead of making an External Request Action Block we are actually going to add a “Get Dynamic Content” block:
+
+Send Data to Lambda Function:Configure the block to send ""Full Contact Data"" to yourLambda function URL(opens in a new tab):
+
+Lambda Function Goals:
+Parse Incoming Request.
+Extract Custom Fields.
+Extract Conversation History which we will save to the User_Text, Bot_Text customTEXTcustomer fieldsyou should have made(opens in a new tab). We will not be using an array type due to current limitations at the time of creating this article. However, these should be stored in an array type format so you can programmatically build thePrediction Guard API chat request(opens in a new tab).
+Append the last customer input to the user messages array (User_Text)
+Prepare Messages for API Request by formatting a request in the format required by thePrediction Guard API(opens in a new tab)
+Make API Request to Prediction Guard and Process Response
+Append the Prediction Guard chat response to the bot messages array (Bot_Text)
+Format ManyChat Response (it must be formatted as noted in thisdoc(opens in a new tab), please make sure to note what platform you are using) This will respond to the user and also save over the new User_Text, Bot_Text with the new complete context.
+JavaScript Example for Lambda Function
+Response Format for ManyChat (Telegram)
+Your response to ManyChat for Telegram should look something likethis(opens in a new tab):
+Configure the rest of the flowThe customer should be able to continue the conversation. This should just route back to the dynamic request without clearing the user fields.The customer should also be able to ask a new question, which should clear the user fields. This action clears the context of the conversation.Finally, it is best to provide a way for a person to reach a real human agent and close the ticket if they so desire.
+Configure the rest of the flow
+The customer should be able to continue the conversation. This should just route back to the dynamic request without clearing the user fields.
+The customer should also be able to ask a new question, which should clear the user fields. This action clears the context of the conversation.
+Finally, it is best to provide a way for a person to reach a real human agent and close the ticket if they so desire.
+After completing this your flow should look like this:
+
+If you followed this example your Telegram bot should be able to respond with the context of the entire conversation:
+
+Happy chatting!"
+53,Reference,/reference,"API Reference
+Python Client
+This package provides functionality developed to simplify interfacing with the Prediction Guard API in Python 3.
+GitHub(opens in a new tab)
+PyPI(opens in a new tab)
+To install the Prediction Guard Python client:
+Requirements:
+Python 3.6+
+REST API
+All of the functionalities of Predition Guard can be accessed through a REST API. The base URL for the API
+is. You can authenticate to the API using youraccess token(opens in a new tab)as a Bearer token."
+54,Chat,/reference/chat,"Chat
+You can get chat text completions (based on a thread of chat messages) from any of the chat enabledmodelsusing theREST API endpoint orPython client class.
+Generate a chat text completion"
+55,Completions,/reference/completions,"Completions
+You can get privacy-conserving text completions from any of theavailable modelsusing a call to theREST API endpoint or theclass in the Python client.
+Generate a text completion"
+56,Factuality,/reference/factuality,"Factuality
+You can get factuality scores (or rather factual consistency scores) from theendpoint orclass in the Python client. This endpoint/Class takes two parameters:
+- A reference text with which you want to compare another text for factual consistency.
+- The candidate text that will be scored for factual consistency.
+The output will include athat ranges from 0.0 to 1.0. The higher the score, the more factuality consistency between theand the.
+Generate a factuality score
+The output will look something like:"
+57,Injection,/reference/injection,"Prompt Injections
+You can check for Prompt Injections from theorclass in the Python client. This endpoint/Class takes two parameters:
+- The prompt you would like to check for potential injections.
+- A boolean for whether you would like any injection to be scored and blocked. (Mainly used in the Completions/Chat endpoints).
+The output will include a score from 0.0 to 1.0. The higher the score, the higher the probability of the checked prompt being an injection.
+Check for Prompt Injection"
+58,Pii,/reference/PII,"PII
+You can check and replace Personal Identifiable Information (PII) from theendpoint orclass in the Python Client. This endpoint/Class takes three parameters:
+- The prompt that you want to check for PII.
+- A boolean for replacing the PII if any is found.
+- The method you would like to use to replace any found PII. The methods are,,, and.
+The output will include the replaced PII if any is present, or will tell you if any PII is in the prompt isis not chosen.
+Check and Replace PII"
+59,Toxicity,/reference/toxicity,"Toxicity
+You can get toxicity scores from theendpoint orclass in the Python client. This endpoint/Class takes a singleparameter, which should include the candidate text to be scored for toxicity. The output will include athat ranges from 0.0 to 1.0. The higher the score, the more toxic the.
+Generate a toxicity score
+The output will look something like:"
+60,Translate,/reference/translate,"Translate
+You can get machine translation and translation quality scores from theendpoint. This endpoint/class takes three parameters:
+- The text to translate.
+- The ISO 639 source language code (e.g. 'eng' for English).
+- The ISO 639 target language code (e.g 'fra' for French).
+Under the hood, theendpoint simultaneously leverages multiple state-of-the-art LLM and machine translation models to perform translations. The translations from these models are scored and ranked using reference-free quality estimation models. This allows us to select the highest quality machine translation for the given source and target languages.
+Supported Languages
+Our translation API supports a wide range of languages, including but not limited to English, Hindi, French, Spanish, German, and more. Refer to the language codes to identify specific languages.
+
+
+The /translate endpoint will return a JSON object response with two fields:
+- The translated text.
+- A score from -1.0 to 1.0 representing the translation quality. Higher the score better the quality.
+Generate a translation
+The output will look something like:"

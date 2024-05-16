@@ -1,0 +1,17 @@
+1. create the app for prompt testing.
+2. Build the end to end pipeline with existing prompts.
+3. deploy as apis for different parts.
+4. create a common prompting function.
+5. create a react frontend for the prompt engineering app.
+6. create a database structure to store all these prompts, their parameters and the resulting response.
+7. host this app somewhere
+8. incorporate the external sources scraping part.
+9. incorporate a trigger pipeline for scraping pgdocs again.
+10. logic for creating a more relevant context for the post generation - using the individual summaries to form a new pg_summary.
+
+
+
+
+
+ML Project
+1. 

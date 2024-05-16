@@ -1,0 +1,140 @@
+
+prompt templates
+capabilities
+prompting
+factual consistency
+basic prompting
+boolean
+factuality checks
+score
+probability score
+zero-shot prompt
+prompt engineering
+safeguarding
+chat text completions.
+integration
+parameters
+remove p
+toxicity
+python client class
+chatbot
+machine translation
+inappropriate content
+endpoint/class
+retrieval
+openai
+output. import react from 'react';
+text
+output
+open access llms
+industries
+target language
+translation quality scores
+bearer token.
+utility
+replace
+privacy-conserving.
+class
+information extraction
+patient information
+fine-tuning
+pii
+data analysis
+object
+large language models (llms)
+personally identifiable information (pii)
+l
+prompt injection detection
+api
+llms
+accuracy
+fake names
+incoming prompts
+anthropic
+chat
+online interactions
+python client
+pii anonymization
+model details
+python sdk
+models
+generative ai
+chat completions
+automation
+serpapi
+rest api endpoint
+sql query generation
+prompt injections
+text completions
+validating
+field/argument
+technical teams
+completions
+consistency
+agents
+found
+strengths
+api calls
+error.
+endpoint
+personally identifiable information
+factuality
+prompts
+chat requests
+access token
+system
+blocking
+candidate text
+probability.
+autocomplete
+enterprise
+python
+injection attacks
+manychat
+llms (large language models)
+ai projects
+lambda function
+client
+prompt formats
+chat automation
+control
+factuality score.
+sota models
+rest api
+chat enabled models
+langchain
+composability
+performance
+toxicity checks
+llm responses
+customer-facing products
+guides
+method
+translation api
+llm operations
+multiple formulations
+ai engineering
+duckdb
+prediction guard
+privacy
+simulated doctor-patient transcripts
+reference text
+injections
+prompt
+output.
+message array
+toxic text
+user
+customer service
+candidate
+iso 639
+chaining
+assistant
+llm
+data extraction
+natural language processing
+robust systems
+prediction guard api
+source language
+prediction guard llms
+offensive content
